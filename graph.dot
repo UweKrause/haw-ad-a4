@@ -1,0 +1,21 @@
+digraph avltree {
+
+111 -> 88 [label = 5];
+111 -> 155 [label = 2];
+
+//links
+88 -> 55 [label = 4];
+
+//links
+55 -> 22 [label = 3];
+
+//links
+22 -> 11 [label = 2];
+
+//rechts
+11 -> 17 [label = 1];
+
+//links
+155 -> 122 [label = 1];
+
+}

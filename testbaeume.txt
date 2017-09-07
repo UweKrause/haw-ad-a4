@@ -1,0 +1,93 @@
+B1 = {1,{},{},1}.
+B2 = {2,{},{},1}.
+B3 = {3,{},{},1}.
+B4 = {4,{},{},1}.
+B5 = {5,{},{},1}.
+B6 = {6,{},{},1}.
+B7 = {7,{},{},1}.
+B8 = {8,{},{},1}.
+B9 = {9,{},{},1}.
+B10 = {10,{},{},1}.
+B11 = {11,{},{},1}.
+
+C2 = {5,B4,B7,2}.
+D2 = {8,C2,B10,3}.
+
+C3 = {7,B6,B8,2}.
+D3 = {10,C2,B11,3}.
+
+
+Falsch1 = {3,B6,B10,7}.
+Falsch2 = {9,C2,B8,3}.
+
+FW = {10, B11, B11, 2}.
+
+
+
+
+L1 = {1,{}}.
+L2 = {2, L1}.
+L3 = {3, L2}.
+L4 = {4, L3}.
+L5 = {5, L4}.
+
+
+
+f().
+c(splaytree).
+X = splaytree:initBT().
+X1 = splaytree:insertBT(X, 50).
+X2 = splaytree:insertBT(X1, 30).
+X3 = splaytree:insertBT(X2, 60).
+X4 = splaytree:insertBT(X3, 20).
+X5 = splaytree:insertBT(X4, 40).
+X6 = splaytree:insertBT(X5, 70).
+X7 = splaytree:insertBT(X6, 45).
+
+io:fwrite("Test splaytree:isBT/1").
+splaytree:isBT(X1)and
+splaytree:isBT(X2)and
+splaytree:isBT(X3)and
+splaytree:isBT(X4)and
+splaytree:isBT(X5)and
+splaytree:isBT(X6) and
+splaytree:isBT(X7) and
+splaytree:isBT(btree).
+
+io:fwrite("Test splaytree:equalBT/2").
+(splaytree:equalBT(X7, X6) == false) and
+splaytree:equalBT(X7, X7).
+
+
+% Klaucks testfall fuer insertBT
+
+f().
+X = splaytree:insertBT(splaytree:insertBT(splaytree:insertBT(splaytree:insertBT(splaytree:insertBT(splaytree:insertBT(splaytree:insertBT(splaytree:insertBT(splaytree:initBT(),111),55),155),22),11),17),122),88).
+Y = {111,{55,{22,{11,{},{17,{},{},1},2},{},3},{88, {}, {},1},4},{155,{122,{},{},1},{},2},5}.
+splaytree:equalBT(X, Y).
+
+
+% ????
+{111,{55,{22,{11,{},{},1},{},2},{},3},{155,{},{},1},4}
+
+
+
+
+{20,{},{30,{},{50,{},{},1},2},3} == splaytree:zig({30,{20,{},{},1},{50,{},{},1},2},r).
+
+{30,{},{50,{42,{},{},1},{},2},3} == splaytree:rotiere({30,{},{50,{42,{},{},1},{},2},3}, [l]).
+
+{55,{50,{42,{20,{},{30,{},{},1},2},{},3},{},4},{},5} == splaytree:zig_zig({42,{20,{},{30,{},{},1},2},{50,{},{55,{},{},1},2},3}, l).
+
+
+X1 = splaytree:insertBT(X, 42).
+X2 = splaytree:insertBT(X1, 80).
+
+
+
+Y = {5,{},{18,{},{69,{42,{},{},1},{120,{88,{},{},1},{},2},3},4},5}.
+
+{3, {69,  {18,{5,{},{},1},{42,{},{},1},2},  {120,{88,{},{},1},{},2},  3}} == splaytree:findBT(Y, 69).
+
+{4, {18,  {5,{},{},1},  {69,{42,{},{},1},{120,{88,{},{},1},{},2},3},  4}} == splaytree:findBT(Y, 18).
+
